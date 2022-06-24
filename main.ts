@@ -53,3 +53,22 @@ IR.IR_callbackUser(function (message) {
         basic.showIcon(IconNames.SmallDiamond)
     }
 })
+huskylens.initI2c()
+huskylens.initMode(protocolAlgorithm.OBJECTCLASSIFICATION)
+basic.forever(function () {
+    huskylens.request()
+    if (huskylens.isAppear(2, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+        basic.showNumber(1)
+    } else if (huskylens.isAppear(3, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+    	
+    } else if (huskylens.isAppear(4, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+    	
+    } else if (huskylens.isAppear(5, HUSKYLENSResultType_t.HUSKYLENSResultBlock)) {
+        maqueen.motorStop(maqueen.Motors.All)
+    } else if (false) {
+        music.playTone(196, music.beat(BeatFraction.Double))
+    } else {
+        basic.clearScreen()
+    }
+    basic.pause(500)
+})
